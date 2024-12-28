@@ -19,15 +19,12 @@ public class UserDataEntity {
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Basic
     @Column(name = "email", nullable = false, length = -1)
     private String email;
 
-    @Basic
     @Column(name = "userpassword", nullable = false, length = -1)
-    private String userpassword;
+    private String password;
 
-    @Basic
     @Column(name = "username", nullable = false, length = -1)
     private String username;
 }

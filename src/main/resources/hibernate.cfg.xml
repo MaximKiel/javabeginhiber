@@ -13,6 +13,8 @@
         <property name="hibernate.format_sql">true</property>
 
         <mapping class="org.hiber.entity.UserDataEntity"/>
+        <mapping class="org.hiber.entity.CategoryEntity"/>
+        <mapping class="org.hiber.entity.PriorityEntity"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

@@ -7,6 +7,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "user_data", schema = "todolist", catalog = "javabeginhiber")
@@ -41,4 +42,10 @@ public class UserDataEntity {
 
     @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
     public StatEntity stat;
+
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(name = "user_role",
+        joinColumns = @JoinColumn(name = "user_id"),
+        inverseJoinColumns = @JoinColumn(name = "role_id"))
+    private Set<Role> roles;
 }

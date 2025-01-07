@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.Objects;
+
 @Entity
 @Table(name = "stat", schema = "todolist", catalog = "javabeginhiber")
 @Setter
@@ -29,4 +31,16 @@ public class StatEntity {
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserDataEntity user;
 
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        StatEntity that = (StatEntity) o;
+        return id.equals(that.id);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
+    }
 }

@@ -20,6 +20,7 @@
         <mapping class="org.hiber.entity.ActivityEntity"/>
         <mapping class="org.hiber.entity.StatEntity"/>
         <mapping class="org.hiber.entity.Role"/>
+        <mapping class="org.hiber.entity.TaskEntity"/>
 
         <!-- DB schema will be updated if needed -->
         <!-- <property name="hibernate.hbm2ddl.auto">update</property> -->

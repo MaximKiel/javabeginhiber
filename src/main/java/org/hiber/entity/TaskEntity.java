@@ -6,40 +6,48 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
+import java.util.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "priority", schema = "todolist", catalog = "javabeginhiber")
+@Table(name = "task", schema = "todolist", catalog = "javabeginhiber")
 @Setter
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-public class PriorityEntity {
+public class TaskEntity {
 
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "id", nullable = false)
     private Long id;
 
-    @Column(name = "title", nullable = false, length = -1)
     private String title;
 
-    @Column(name = "color", nullable = false, length = -1)
-    private String color;
+    @Basic
+    @Convert(converter = org.hibernate.type.NumericBooleanConverter.class)
+    private Boolean completed;
 
-    @ManyToOne
+    @Column(name = "task_date")
+    private Date taskDate;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "priority_id", referencedColumnName = "id")
+    private PriorityEntity priority;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "category_id", referencedColumnName = "id")
+    private CategoryEntity category;
+
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserDataEntity user;
-
-    @OneToMany(mappedBy = "priority", fetch = FetchType.LAZY)
-    private List<TaskEntity> tasks;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        PriorityEntity that = (PriorityEntity) o;
+        TaskEntity that = (TaskEntity) o;
         return id.equals(that.id);
     }
 

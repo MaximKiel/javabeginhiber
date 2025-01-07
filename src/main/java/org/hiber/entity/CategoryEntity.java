@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -33,6 +34,9 @@ public class CategoryEntity {
     @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserDataEntity user;
+
+    @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
+    private List<TaskEntity> tasks;
 
     @Override
     public boolean equals(Object o) {

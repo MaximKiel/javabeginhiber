@@ -24,7 +24,7 @@ public class ActivityEntity {
 
     @Basic
     @Convert(converter = org.hibernate.type.NumericBooleanConverter.class)
-    private boolean activated;
+    private Boolean activated;
 
     @Column(updatable = false)
     private String uuid;

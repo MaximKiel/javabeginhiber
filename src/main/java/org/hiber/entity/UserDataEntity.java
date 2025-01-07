@@ -50,6 +50,9 @@ public class UserDataEntity {
         inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    private List<TaskEntity> tasks;
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

@@ -30,6 +30,7 @@ public class ActivityEntity {
     private String uuid;
 
     @OneToOne
+    @MapsId
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserDataEntity user;
 

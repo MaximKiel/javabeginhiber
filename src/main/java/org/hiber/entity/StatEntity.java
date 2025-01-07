@@ -28,6 +28,7 @@ public class StatEntity {
     private Long uncompletedTotal;
 
     @OneToOne
+    @MapsId
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserDataEntity user;
 

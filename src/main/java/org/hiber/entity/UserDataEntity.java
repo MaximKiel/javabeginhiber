@@ -38,10 +38,10 @@ public class UserDataEntity {
     @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
     private List<PriorityEntity> priorities;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, optional = false)
     public ActivityEntity activity;
 
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, optional = false)
     public StatEntity stat;
 
     @ManyToMany(fetch = FetchType.LAZY)

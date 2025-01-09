@@ -7,7 +7,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Objects;
-import java.util.Set;
 
 @Entity
 @Table(name = "role_data", schema = "todolist", catalog = "javabeginhiber")
@@ -24,8 +23,8 @@ public class Role {
 
     private String name;
 
-    @ManyToMany(mappedBy = "roles")
-    private Set<UserDataEntity> users;
+//    @ManyToMany(mappedBy = "roles")
+//    private Set<UserDataEntity> users;
 
     @Override
     public boolean equals(Object o) {

@@ -28,9 +28,9 @@ public class PriorityEntity {
     @Column(name = "color", nullable = false, length = -1)
     private String color;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private UserDataEntity user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private UserDataEntity user;
 
     @OneToMany(mappedBy = "priority", fetch = FetchType.LAZY)
     private List<TaskEntity> tasks;

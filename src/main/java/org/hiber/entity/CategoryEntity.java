@@ -31,9 +31,9 @@ public class CategoryEntity {
     @Column(name = "uncompleted_count", nullable = false)
     private Long uncompletedCount;
 
-    @ManyToOne
-    @JoinColumn(name = "user_id", referencedColumnName = "id")
-    private UserDataEntity user;
+//    @ManyToOne
+//    @JoinColumn(name = "user_id", referencedColumnName = "id")
+//    private UserDataEntity user;
 
     @OneToMany(mappedBy = "category", fetch = FetchType.LAZY)
     private List<TaskEntity> tasks;

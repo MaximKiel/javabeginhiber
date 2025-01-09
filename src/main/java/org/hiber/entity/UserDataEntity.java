@@ -6,7 +6,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
 import java.util.Objects;
 import java.util.Set;
 
@@ -32,26 +31,26 @@ public class UserDataEntity {
     @Column(name = "username", nullable = false, length = -1)
     private String username;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<CategoryEntity> categories;
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<PriorityEntity> priorities;
-
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, optional = false)
-    public ActivityEntity activity;
-
-    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, optional = false)
-    public StatEntity stat;
-
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany
     @JoinTable(name = "user_role",
-        joinColumns = @JoinColumn(name = "user_id"),
-        inverseJoinColumns = @JoinColumn(name = "role_id"))
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id"))
     private Set<Role> roles;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
-    private List<TaskEntity> tasks;
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    private List<TaskEntity> tasks;
+//
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    private List<CategoryEntity> categories;
+//
+//    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+//    private List<PriorityEntity> priorities;
+//
+//    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, optional = false)
+//    public ActivityEntity activity;
+//
+//    @OneToOne(mappedBy = "user", fetch = FetchType.LAZY, optional = false)
+//    public StatEntity stat;
 
     @Override
     public boolean equals(Object o) {

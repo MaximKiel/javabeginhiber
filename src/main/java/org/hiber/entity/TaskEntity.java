@@ -31,15 +31,15 @@ public class TaskEntity {
     @Column(name = "task_date")
     private Date taskDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "priority_id", referencedColumnName = "id")
     private PriorityEntity priority;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "category_id", referencedColumnName = "id")
     private CategoryEntity category;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "user_id", referencedColumnName = "id")
     private UserDataEntity user;
 
